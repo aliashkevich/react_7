@@ -1,7 +1,12 @@
 h1 {
-  text-align: center;  
+  text-align: center; 
+  color: slategray
 }
 
-form {
-  padding: 0 60px;;
+.container {
+  padding: 50px;
+  background-color: honeydew;
+  border-radius: 50px;
+  margin-top: 20px;
 }
+

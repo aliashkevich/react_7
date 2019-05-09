@@ -31,7 +31,7 @@ export default class FormAddMovie extends React.Component {
         if (res.error) {
           alert(res.error);
         } else {
-          alert(`Added ${this.state.name} film with the comment: ${this.state.comment}!`);
+          alert(`Added "${this.state.name}"" film with the comment: "${this.state.comment}!"`);
         }
       }).catch(e => {
         console.error(e);
@@ -52,21 +52,21 @@ export default class FormAddMovie extends React.Component {
 
   render() {
     return (
-      <Container>
+      <Container bg-color="light">
         <div className="FormAddMovie">
-          <h1 className="text-muted">Tell about your favourite film</h1>
-          <Form>
+          <h1>Tell about your favourite film</h1>
+          <Form onSubmit={this.submitForm}>
             <Row>
               <Col lg={{ size: 4, offset: 2 }}>
                 <FormGroup>
                   <Label for="name">Film:</Label>
-                  <Input type="text" name="name" id="name" onChange={this.onChange} value={this.state.name} />
+                  <Input type="text" name="name" id="name" onChange={this.onChange} value={this.state.name} required />
                 </FormGroup>
               </Col>
               <Col lg={{ size: 4 }}>
                 <FormGroup>
                   <Label for="poster">Poster URL:</Label>
-                  <Input type="text" name="poster" id="poster" placeholder="http://" onChange={this.onChange} value={this.state.poster} />
+                  <Input type="url" name="poster" id="poster" placeholder="http://" onChange={this.onChange} value={this.state.poster} required />
                 </FormGroup>
               </Col>
             </Row>
@@ -74,10 +74,10 @@ export default class FormAddMovie extends React.Component {
               <Col lg={{ size: 8, offset: 2 }}>
                 <FormGroup>
                   <Label for="comment">Comment:</Label>
-                  <Input type="textarea" name="comment" id="comment" onChange={this.onChange} value={this.state.comment} />
+                  <Input type="textarea" name="comment" id="comment" onChange={this.onChange} value={this.state.comment} required />
                   <FormText>Why do you like this film? What impressed you in this film?</FormText>
                 </FormGroup>
-                <Button color="success" type="submit" onClick={this.submitForm}>Send</Button>
+                <Button color="success" type="submit">Send</Button>
               </Col>
             </Row>
           </Form>
